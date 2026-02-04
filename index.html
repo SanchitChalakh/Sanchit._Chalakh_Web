@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanchit Chalakh | Premium Bio</title>
+
+<!-- PWA -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0b0b10">
+
+<meta name="description" content="Sanchit Chalakh – Student, Tech Learner, Future Developer">
+<meta property="og:title" content="Sanchit Chalakh">
+<meta property="og:image" content="https://i.imgur.com/1X4FQKx.png">
+<meta property="og:type" content="website">
+
+<style>
+:root{
+  --bg:#0b0b10;
+  --card:rgba(255,255,255,0.08);
+  --text:#fff;
+  --accent:#00f2ff;
+}
+body.light{
+  --bg:#f4f5f7;
+  --card:#fff;
+  --text:#111;
+  --accent:#007aff;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+body{background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;transition:0.4s;}
+canvas{position:fixed;inset:0;z-index:-1;pointer-events:none;}
+
+/* Toggle */
+.toggle{
+  position:fixed;top:16px;right:16px;
+  background:var(--card);
+  padding:8px 14px;
+  border-radius:20px;
+  cursor:pointer;
+  z-index:10;
+  box-shadow:0 6px 18px rgba(0,0,0,0.25);
+  font-size:13px;
+}
+
+/* Header */
+header{text-align:center;padding:40px 20px 20px;}
+.dp{
+  width:120px;height:120px;margin:auto;
+  border-radius:50%;
+  padding:4px;
+  background:linear-gradient(135deg,var(--accent),#ff4ecd);
+}
+.dp img{
+  width:100%;height:100%;
+  border-radius:50%;
+  border:4px solid var(--bg);
+  cursor:pointer;
+  transition:0.3s;
+}
+.dp img:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px var(--accent);
+}
+h1{margin-top:16px;font-size:22px;}
+.role{margin-top:6px;font-size:14px;opacity:.8;}
+
+/* Links */
+.links{padding:24px;display:grid;gap:16px;}
+.card-btn{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 18px;
+  border-radius:20px;
+  background:var(--card);
+  color:var(--text);
+  text-decoration:none;
+  box-shadow:0 0 25px rgba(0,0,0,.25);
+  transition:.3s;
+  position:relative;
+  overflow:hidden;
+}
+.card-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 0 30px var(--accent);
+}
+.card-btn:active{transform:scale(.96);}
+.card-btn::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,var(--accent),transparent);
+  opacity:.15;
+}
+.left{display:flex;align-items:center;gap:14px;}
+.icon{
+  width:44px;height:44px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  background:linear-gradient(135deg,var(--accent),#ff4ecd);
+  color:#fff;
+}
+.arrow{font-size:18px;opacity:.6;}
+
+/* Footer */
+footer{text-align:center;font-size:12px;opacity:.6;padding:20px;}
+
+/* Image Modal */
+.img-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+  backdrop-filter:blur(6px);
+}
+.img-modal img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:20px;
+  box-shadow:0 0 40px var(--accent);
+  animation:zoomIn .3s ease;
+}
+@keyframes zoomIn{
+  from{transform:scale(.6);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="toggle" onclick="toggleMode()">Dark / Light</div>
+
+<header>
+  <div class="dp">
+    <img src="https://i.imgur.com/1X4FQKx.png" alt="Profile" onclick="openImg(this.src)">
+  </div>
+  <h1>Sanchit Chalakh ✔</h1>
+  <div class="role" id="typing"></div>
+</header>
+
+<section class="links">
+
+  <a class="card-btn" href="https://wa.me/919923653244" target="_blank" rel="noopener">
+    <div class="left">
+      <div class="icon">💬</div>
+      <div><strong>WhatsApp</strong><br><small>Chat with me</small></div>
+    </div>
+    <div class="arrow">›</div>
+  </a>
+
+  <a class="card-btn" href="https://www.instagram.com/sanchit._chalakh" target="_blank" rel="noopener">
+    <div class="left">
+      <div class="icon">📸</div>
+      <div><strong>Instagram</strong><br><small>@sanchit._chalakh</small></div>
+    </div>
+    <div class="arrow">›</div>
+  </a>
+
+  <a class="card-btn" href="https://t.me/SanchitChalakh" target="_blank" rel="noopener">
+    <div class="left">
+      <div class="icon">✈️</div>
+      <div><strong>Telegram</strong><br><small>@SanchitChalakh</small></div>
+    </div>
+    <div class="arrow">›</div>
+  </a>
+
+  <a class="card-btn" href="https://github.com/SanchitChalakh" target="_blank" rel="noopener">
+    <div class="left">
+      <div class="icon">💻</div>
+      <div><strong>GitHub</strong><br><small>My projects</small></div>
+    </div>
+    <div class="arrow">›</div>
+  </a>
+
+</section>
+
+<footer>© Sanchit Chalakh</footer>
+
+<!-- Image Modal -->
+<div id="imgModal" class="img-modal" onclick="closeImg()">
+  <img id="modalImg" alt="Preview">
+</div>
+
+<script>
+/* Dark / Light */
+function toggleMode(){
+  document.body.classList.toggle("light");
+}
+
+/* Typing animation */
+const typing = document.getElementById("typing");
+const roles=["Student","Tech Learner","Future Developer"];
+let r=0,i=0;
+function type(){
+  if(i<roles[r].length){
+    typing.textContent+=roles[r][i++];
+    setTimeout(type,90);
+  }else{
+    setTimeout(()=>{
+      typing.textContent="";
+      i=0;
+      r=(r+1)%roles.length;
+      type();
+    },1200);
+  }
+}
+type();
+
+/* Image click preview */
+const modal=document.getElementById("imgModal");
+const modalImg=document.getElementById("modalImg");
+
+function openImg(src){
+  modal.style.display="flex";
+  modalImg.src=src;
+}
+function closeImg(){
+  modal.style.display="none";
+}
+
+/* Particles */
+const c=document.getElementById("particles");
+const ctx=c.getContext("2d");
+function resize(){c.width=innerWidth;c.height=innerHeight;}
+resize();
+window.addEventListener("resize",resize);
+
+let dots=Array.from({length:80},()=>({
+  x:Math.random()*c.width,
+  y:Math.random()*c.height,
+  vx:(Math.random()-.5)*0.8,
+  vy:(Math.random()-.5)*0.8
+}));
+
+function animate(){
+  ctx.clearRect(0,0,c.width,c.height);
+  dots.forEach(d=>{
+    ctx.fillStyle="rgba(0,242,255,0.7)";
+    ctx.fillRect(d.x,d.y,2,2);
+    d.x+=d.vx; d.y+=d.vy;
+    if(d.x<0||d.x>c.width)d.vx*=-1;
+    if(d.y<0||d.y>c.height)d.vy*=-1;
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>

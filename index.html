@@ -4,10 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sanchit Chalakh 😎</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <!-- Scroll Progress -->
@@ -23,42 +21,53 @@
 
 <canvas id="particles"></canvas>
 
+<!-- Dark / Light Toggle -->
 <div class="toggle" onclick="toggleMode()">Dark / Light</div>
 
 <header>
   <div class="dp">
-    <img src="sanchit.jpg" alt="Profile">
+    <img src="sanchit.jpg" alt="Profile" onclick="openImg(this.src)">
   </div>
   <h1>Sanchit Chalakh ✔</h1>
   <div class="role" id="typing"></div>
 </header>
 
 <section class="links">
-
-  <a class="card-btn" href="#">
+  <a class="card-btn" href="https://wa.me/919923653244" target="_blank" rel="noopener">
     <div class="left">
       <div class="icon">💬</div>
       <div><strong>WhatsApp</strong></div>
     </div>
   </a>
 
-  <a class="card-btn" href="#">
+  <a class="card-btn" href="https://www.instagram.com/sanchit._chalakh" target="_blank" rel="noopener">
     <div class="left">
       <div class="icon">📸</div>
       <div><strong>Instagram</strong></div>
     </div>
   </a>
 
-  <a class="card-btn" href="#">
+  <a class="card-btn" href="https://github.com/SanchitChalakh" target="_blank" rel="noopener">
     <div class="left">
       <div class="icon">💻</div>
       <div><strong>GitHub</strong></div>
     </div>
   </a>
 
+  <a class="card-btn" href="https://t.me/SanchitChalakh" target="_blank" rel="noopener">
+    <div class="left">
+      <div class="icon">✈️</div>
+      <div><strong>Telegram</strong></div>
+    </div>
+  </a>
 </section>
 
 <footer>© Sanchit Chalakh</footer>
+
+<!-- Image Modal -->
+<div id="imgModal" class="img-modal" onclick="closeImg()">
+  <img id="modalImg" alt="Preview">
+</div>
 
 <script src="script.js"></script>
 </body>
